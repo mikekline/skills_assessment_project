@@ -1,27 +1,60 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import './css/App.css';
-import './css/DiagnosticTool.css';
-import Button from 'react-bootstrap/Button';
-import Nav from 'react-bootstrap/Nav';
-
 import DiagnosticTool from "./DiagnosticTool";
 import UnderConstruction from "./UnderConstruction";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { 
+  faThumbtack, 
+  faChartBar, 
+  faEnvelope, 
+  faFileCode,
+  faFileAlt 
+} from '@fortawesome/free-solid-svg-icons';
+
+
+library.add( 
+  faThumbtack, 
+  faChartBar, 
+  faEnvelope, 
+  faFileCode,
+  faFileAlt 
+);
+
 
 class App extends Component {
   render() {
     return ( 
       <Router>
-          <Nav className="flex-column nav">
+          <nav className="nav">
             <ul>
-              <li></li>
-              <li></li>
-              <li><Link to="/under_construction" className="">icon1</Link></li>
-              <li><Link to="/under_construction" className="">icon2</Link></li>
-              <li><Link to="/" className="">icon3</Link></li>
-              <li><Link to="/under_construction" className="">icon4</Link></li>
+              <li>
+                <FontAwesomeIcon className="icon" icon={faThumbtack} />
+              </li>
+              <li>
+                <Link to="/under_construction">
+                  <FontAwesomeIcon className="icon" icon={faChartBar} />
+                </Link>
+                </li>
+              <li>
+                <Link to="/under_construction">
+                  <FontAwesomeIcon className="icon" icon={faEnvelope} />
+                </Link>
+              </li>
+              <li>
+                <Link to="/">
+                  <FontAwesomeIcon className="icon" icon={faFileCode} />
+                </Link>
+              </li>
+              <li>
+                <Link to="/under_construction">
+                  <FontAwesomeIcon className="icon" icon={faFileAlt} />
+                </Link>
+              </li>
             </ul>
-          </Nav>
+          </nav>
+
           <Switch>
             <Route path="/under_construction"  component={UnderConstruction} />
             <Route path="/" exact component={DiagnosticTool} />
