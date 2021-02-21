@@ -27,7 +27,7 @@ header li {
 
 header li:nth-child(1) {
     border-right: 1px solid #fff;
-    margin-right: 0px;
+    margin-right: 25px;
     padding-right: 25px;
     width: fit-content;  
 }
