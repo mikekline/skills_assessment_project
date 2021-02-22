@@ -9,7 +9,10 @@ import {
   faPrint,
   faQuestionCircle,
   faArrowAltCircleRight,
-  faGlobe
+  faGlobe,
+  faThumbtack,
+  faSquare,
+  faExclamationCircle
 } from '@fortawesome/free-solid-svg-icons';
 
 
@@ -19,7 +22,10 @@ library.add(
   faPrint,
   faQuestionCircle,
   faArrowAltCircleRight,
-  faGlobe
+  faGlobe,
+  faThumbtack,
+  faSquare,
+  faExclamationCircle
 );
 
 
@@ -49,7 +55,66 @@ export default class DiagnosticTool extends Component {
                   </ul>
                 </header>
 
+                <div className="container">
+                    <div className="title">
+                      <h3>Performance Management</h3>
+                    </div>
 
+                    <div className="toolName">
+                      <span><FontAwesomeIcon className="" icon={faGlobe} size="lg" /> Diagnostic Tool</span> 
+                      <FontAwesomeIcon className="icon" icon={faThumbtack} />
+                    </div>
+
+                    <div className="filters">
+                      Filters
+                      <div className="filtersBox card">
+                        <FontAwesomeIcon className="" icon={faSquare} size="sm" />  
+                          <span> All CQA Results </span>
+                        <FontAwesomeIcon className="" icon={faExclamationCircle} size="sm" />
+                        <br/>
+                        <FontAwesomeIcon className="" icon={faSquare} size="sm" /> 
+                          <span> CQAs with Closed Loop </span>
+                        <FontAwesomeIcon className="" icon={faExclamationCircle} size="sm" />
+                      </div>
+
+                    </div>
+
+                    <div className="trend">
+                      QUALITY SCORE TREND 
+                      <span>
+                        <Button className="button" as="input" type="button" value="Day" />{' '}
+                        <Button className="button" as="input" type="button" value="Week" />{' '}
+                        <Button className="button" as="input" type="button" value="Month" />{' '}
+                        <Button className="button" as="input" type="button" value="Quarter" />{' '}
+                        <Button className="button" as="input" type="button" value="Half" />{' '}
+                        <Button className="button" as="input" type="button" value="Year" />{' '}
+                      </span>
+                    </div>
+
+                    <div className="qualityScore card">
+                      
+                    </div>
+
+                    <div className="basics card">
+                      
+                    </div>
+                    <div className="interaction card">
+                      
+                    </div>
+                    <div className="expertise card">
+                      
+                    </div>
+                    <div className="process card">
+                      
+                    </div>
+                    <div className="knowledge card">
+                      
+                    </div>
+
+                    <div className="graph">
+                      
+                    </div>
+                </div>
 
             </div>
         )
