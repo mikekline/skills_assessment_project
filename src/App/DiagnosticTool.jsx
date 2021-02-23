@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './css/DiagnosticTool.css';
+import data from "./data/data.json";
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -29,8 +30,40 @@ library.add(
 );
 
 
+
 export default class DiagnosticTool extends Component {
+  constructor () {
+    super();
+    this.state={
+      data,
+      'cardClasses': [
+        'qualityScore card',
+        'basics card',
+        'interaction card',
+        'expertise card',
+        'process card',
+        'knowledge card'
+      ]
+    }
+  }
+    
+
     render() {
+        const dataContent = this.state.data.gaugeData.map((dataName, i)=>
+          <div key={i} className='cardInfo'>
+            <p>{dataName.name}</p> 
+            <p>{dataName.score}%</p>
+            <p>Sample: {dataName.sample}</p>
+          </div>
+        );   
+      
+        const card = this.state.cardClasses.map((cardId, i)=>
+          <div key={i} className={cardId}>
+                   {dataContent[i]}
+          </div>
+        );
+
+
         return (
             <div className="DiagnosticToolComponant">
                 <header>
@@ -55,15 +88,20 @@ export default class DiagnosticTool extends Component {
                   </ul>
                 </header>
 
+
+
+
                 <div className="container">
                     <div className="title">
                       <h3>Performance Management</h3>
                     </div>
 
+
                     <div className="toolName">
                       <span><FontAwesomeIcon className="" icon={faGlobe} size="lg" /> Diagnostic Tool</span> 
                       <FontAwesomeIcon className="icon" icon={faThumbtack} />
                     </div>
+
 
                     <div className="filters">
                       Filters
@@ -76,8 +114,8 @@ export default class DiagnosticTool extends Component {
                           <span> CQAs with Closed Loop </span>
                         <FontAwesomeIcon className="" icon={faExclamationCircle} size="sm" />
                       </div>
-
                     </div>
+
 
                     <div className="trend">
                       QUALITY SCORE TREND 
@@ -91,31 +129,14 @@ export default class DiagnosticTool extends Component {
                       </span>
                     </div>
 
-                    <div className="qualityScore card">
-                      
-                    </div>
+                    
+                    {card}
 
-                    <div className="basics card">
-                      
-                    </div>
-                    <div className="interaction card">
-                      
-                    </div>
-                    <div className="expertise card">
-                      
-                    </div>
-                    <div className="process card">
-                      
-                    </div>
-                    <div className="knowledge card">
-                      
-                    </div>
 
                     <div className="graph">
-                      
+              
                     </div>
                 </div>
-
             </div>
         )
     }
