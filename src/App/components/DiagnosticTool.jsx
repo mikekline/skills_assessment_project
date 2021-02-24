@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import '../css/DiagnosticTool.css';
-import data from "../data/data.json";
+import data from '../data/data.json';
 import Button from 'react-bootstrap/Button';
-import Circlechart from "./Circlechart.jsx"
+import Circlechart from './Circlechart.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { 
@@ -35,8 +35,11 @@ library.add(
 export default class DiagnosticTool extends Component {
   constructor () {
     super();
+    this.veiwArea = this.veiwArea.bind(this);
     this.state={
       data,
+      active: '',
+      title:'QUALITY SCORE TREND',
       'cardClasses': [
         'qualityScore card',
         'basics card',
@@ -47,27 +50,46 @@ export default class DiagnosticTool extends Component {
       ]
     }
   }
+
+
+  veiwArea(title) {
+    this.setState({
+      title:title.toUpperCase() + ' TREND'
+    });
+  }
+
+
     
 
     render() {
-        const dataContent = this.state.data.gaugeData.map((dataName, i)=>
-          <div key={i} className='cardInfo'>
-            <p>{dataName.name}</p> 
-            <span><p>{dataName.score}%</p>
-            <p>N/A</p></span>
-            <Circlechart keyCode={i} score={dataName.score} />
-            <p>Sample: {dataName.sample}</p>
+        //renders data for each donut chart card
+        const dataContent = this.state.data.gaugeData.map((singleGauge, i) =>
+          <div 
+            onClick={() => {this.veiwArea(singleGauge.name);}} 
+            key={i} 
+            className="cardInfo"
+          >
+            <p>{singleGauge.name}</p> 
+
+            <span>
+              <p>{singleGauge.score}%</p>
+              <p>N/A</p>
+            </span>
+
+            <p>Sample: {singleGauge.sample}</p>
+            
+            <Circlechart keyCode={i} score={singleGauge.score} />    
           </div>
         );   
       
-        const cards = this.state.cardClasses.map((cardId, i)=>
-          <div key={i} className={cardId}>
-            
-                   {dataContent[i]}
-                   
-                   
+        //renders each donut chart card to specific place on the grid
+        const cards = this.state.cardClasses.map((cardId, i) =>
+          <div  key={i} className={cardId}>
+            {dataContent[i]}         
           </div>
         );
+
+
 
 
         return (
@@ -124,7 +146,7 @@ export default class DiagnosticTool extends Component {
 
 
                     <div className="trend">
-                      QUALITY SCORE TREND 
+                      {this.state.title}
                       <span>
                         <Button className="button" as="input" type="button" value="Day" />{' '}
                         <Button className="button" as="input" type="button" value="Week" />{' '}
@@ -140,7 +162,7 @@ export default class DiagnosticTool extends Component {
 
 
                     <div className="chart">
-                      
+                      Area Chart
                     </div>
                 </div>
             </div>

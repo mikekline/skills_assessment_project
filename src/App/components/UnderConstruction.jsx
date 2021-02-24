@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class UnderConstruction extends Component {
     render() {
         return (
-            <div>
+            <div className="underC">
                 <p>Under Construction!!!!!</p>
             </div>
         )

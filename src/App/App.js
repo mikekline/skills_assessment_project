@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import './css/App.css';
-import DiagnosticTool from "./components/DiagnosticTool.jsx";
-import UnderConstruction from "./components/UnderConstruction.jsx";
+import DiagnosticTool from './components/DiagnosticTool.jsx';
+import UnderConstruction from './components/UnderConstruction.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { 
@@ -25,10 +25,11 @@ library.add(
 
 class App extends Component {
 
-  
-  
+
   render() {
     return ( 
+
+    
       <Router>
           <nav className="nav">
             <ul>
@@ -36,7 +37,7 @@ class App extends Component {
                 <FontAwesomeIcon className="icon" icon={faThumbtack} />
               </li>
               <li>
-                <Link to="/under_construction">
+                <Link to='/under_construction'>
                   <FontAwesomeIcon className="icon" icon={faChartBar} />
                 </Link>
                 </li>
