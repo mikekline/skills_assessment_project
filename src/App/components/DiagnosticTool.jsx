@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../css/DiagnosticTool.css';
 import data from "../data/data.json";
 import Button from 'react-bootstrap/Button';
+import Circlechart from "./Circlechart.jsx"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { 
@@ -52,14 +53,19 @@ export default class DiagnosticTool extends Component {
         const dataContent = this.state.data.gaugeData.map((dataName, i)=>
           <div key={i} className='cardInfo'>
             <p>{dataName.name}</p> 
-            <p>{dataName.score}%</p>
+            <span><p>{dataName.score}%</p>
+            <p>N/A</p></span>
+            <Circlechart keyCode={i} score={dataName.score} />
             <p>Sample: {dataName.sample}</p>
           </div>
         );   
       
         const cards = this.state.cardClasses.map((cardId, i)=>
           <div key={i} className={cardId}>
+            
                    {dataContent[i]}
+                   
+                   
           </div>
         );
 
@@ -134,7 +140,7 @@ export default class DiagnosticTool extends Component {
 
 
                     <div className="chart">
-              
+                      
                     </div>
                 </div>
             </div>

@@ -1,0 +1,9 @@
+.svg {
+    height: 25vh;
+    position: absolute;
+    width: 9vw;
+}
+
+g {
+    transform: translate(50%, 50%);
+}
