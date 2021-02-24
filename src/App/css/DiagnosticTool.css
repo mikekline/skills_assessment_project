@@ -32,7 +32,7 @@ header li:nth-child(1) {
     padding-right: 25px;
     width: fit-content;  
 }
-/* -----------aphabet to this point---------------- */
+
 
 .container {
     display: grid;
@@ -122,7 +122,7 @@ header li:nth-child(1) {
 }
   
 
-.graph {
+.chart {
     grid-column: 5/6;
     grid-row: 4/6;
 }

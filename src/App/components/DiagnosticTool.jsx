@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './css/DiagnosticTool.css';
-import data from "./data/data.json";
+import '../css/DiagnosticTool.css';
+import data from "../data/data.json";
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -57,7 +57,7 @@ export default class DiagnosticTool extends Component {
           </div>
         );   
       
-        const card = this.state.cardClasses.map((cardId, i)=>
+        const cards = this.state.cardClasses.map((cardId, i)=>
           <div key={i} className={cardId}>
                    {dataContent[i]}
           </div>
@@ -130,10 +130,10 @@ export default class DiagnosticTool extends Component {
                     </div>
 
                     
-                    {card}
+                    {cards}
 
 
-                    <div className="graph">
+                    <div className="chart">
               
                     </div>
                 </div>

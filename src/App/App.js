@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import * as d3 from 'd3'
 import './css/App.css';
-import DiagnosticTool from "./DiagnosticTool.jsx";
-import UnderConstruction from "./UnderConstruction.jsx";
+import DiagnosticTool from "./components/DiagnosticTool.jsx";
+import UnderConstruction from "./components/UnderConstruction.jsx";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { 
